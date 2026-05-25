@@ -23,6 +23,22 @@ app.engine('liquid', engine.express())
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
+app.get('/algemeen', async function (request, response) {
+  response.render('algemeen.liquid')
+})
+
+app.get('/nieuw-west', async function (request, response) {
+  response.render('nieuw-west.liquid')
+})
+
+app.get('/zuidoost', async function (request, response) {
+  response.render('zuidoost.liquid')
+})
+
+app.get('/oost', async function (request, response) {
+  response.render('oost.liquid')
+})
+
 app.get('/:district/:slug', async function (request, response) {
   const district = request.params.district
   const slug = request.params.slug
